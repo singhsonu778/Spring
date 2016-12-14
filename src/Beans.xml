@@ -10,4 +10,6 @@
 		<property name="message" value="Hello World!" />
 	</bean>
 
+	<bean class="com.sonu.spring.MessagePostProcessor" />
+	
 </beans>

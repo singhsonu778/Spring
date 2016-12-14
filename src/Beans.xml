@@ -3,13 +3,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
-	default-init-method="init" default-destroy-method="destroy">
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="messageBean" class="com.sonu.spring.Message">
-		<property name="message" value="Hello World!" />
+	<bean id="world" class="com.sonu.spring.HelloWorld">
+		<property name="name" value="World" />
+		<property name="message" value="Hello Everyone!" />
 	</bean>
 
-	<bean class="com.sonu.spring.MessagePostProcessor" />
-	
+	<bean id="country" class="com.sonu.spring.HelloCountry" parent="world">
+		<property name="name" value="India" />
+		<property name="currency" value="Rupees" />
+	</bean>
+
 </beans>

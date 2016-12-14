@@ -6,7 +6,7 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean id="textEditor" class="com.sonu.spring.TextEditor">
-		<constructor-arg ref="spellChecker" />
+		<property name="spellChecker" ref="spellChecker"/>
 	</bean>
 
 	<bean id="spellChecker" class="com.sonu.spring.SpellChecker" />

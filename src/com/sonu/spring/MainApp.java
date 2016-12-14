@@ -8,10 +8,7 @@ public class MainApp {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
-		HelloCountry country = (HelloCountry) context.getBean("country");
-		country.getName();
-		country.getMessage();
-		country.getCurrency();
-
+		TextEditor textEditor = (TextEditor) context.getBean("textEditor");
+		textEditor.checkSpelling();
 	}
 }

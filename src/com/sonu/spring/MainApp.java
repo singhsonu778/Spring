@@ -8,7 +8,11 @@ public class MainApp {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
-		TextEditor textEditor = (TextEditor) context.getBean("textEditor");
-		textEditor.checkSpelling();
+		JavaCollection jc = (JavaCollection) context.getBean("javaCollection");
+
+		jc.getAddressList();
+		jc.getAddressSet();
+		jc.getAddressMap();
+		jc.getAddressProp();
 	}
 }

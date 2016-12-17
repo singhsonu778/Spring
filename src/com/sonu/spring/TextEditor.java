@@ -6,6 +6,10 @@ public class TextEditor {
 	private String name;
 	private SpellChecker spellChecker;
 
+	public TextEditor(SpellChecker spellChecker) {
+		this.spellChecker = spellChecker;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -20,14 +24,6 @@ public class TextEditor {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public SpellChecker getSpellChecker() {
-		return spellChecker;
-	}
-
-	public void setSpellChecker(SpellChecker spellChecker) {
-		this.spellChecker = spellChecker;
 	}
 
 	public void checkSpelling() {

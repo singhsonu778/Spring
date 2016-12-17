@@ -5,10 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="textEditor" class="com.sonu.spring.TextEditor">
+	<bean id="textEditor" class="com.sonu.spring.TextEditor" autowire="byName">
 		<property name="id" value="1" />
 		<property name="name" value="Notepad" />
-		<property name="spellChecker" ref="spellChecker" />
 	</bean>
 
 	<bean id="spellChecker" class="com.sonu.spring.SpellChecker" />

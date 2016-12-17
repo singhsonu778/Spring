@@ -5,40 +5,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="javaCollection" class="com.sonu.spring.JavaCollection">
-
-		<property name="addressList">
-			<list>
-				<value>Mumbai</value>
-				<value>Pune</value>
-				<value>Varanasi</value>
-			</list>
-		</property>
-
-		<property name="addressSet">
-			<set>
-				<value>Mumbai</value>
-				<value>Pune</value>
-				<value>Varanasi</value>
-			</set>
-		</property>
-
-		<property name="addressMap">
-			<map>
-				<entry key="1" value="Mumbai" />
-				<entry key="2" value="Pune" />
-				<entry key="3" value="Varanasi" />
-			</map>
-		</property>
-
-		<property name="addressProp">
-			<props>
-				<prop key="one">Mumbai</prop>
-				<prop key="two">Pune</prop>
-				<prop key="three">Varanasi</prop>
-			</props>
-		</property>
-
+	<bean id="textEditor" class="com.sonu.spring.TextEditor">
+		<property name="id" value="1" />
+		<property name="name" value="Notepad" />
+		<property name="spellChecker" ref="spellChecker" />
 	</bean>
+
+	<bean id="spellChecker" class="com.sonu.spring.SpellChecker" />
 
 </beans>

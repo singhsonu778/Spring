@@ -1,20 +1,18 @@
 package com.sonu.spring;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
-
 	public static void main(String[] args) {
-		AbstractApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
-		// below lines can also be used instead of above line
-		// AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		// context.register(JavaConfig.class);
-		// context.refresh();
+		context.start();
 
-		TextEditor textEditor = (TextEditor) context.getBean("textEditor");
+		TextEditor textEditor = context.getBean("textEditor", TextEditor.class);
 		textEditor.checkSpelling();
+
+		context.stop();
 
 		context.registerShutdownHook();
 	}

@@ -7,23 +7,7 @@
     http://www.springframework.org/schema/aop 
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 
-	<aop:config>
-		
-		<aop:aspect id="log" ref="logging">
-		
-			<aop:pointcut id="selectAll" expression="execution(* com.sonu.spring.*.*(..))" />
-			
-			<aop:before pointcut-ref="selectAll" method="beforeAdvice" />
-			
-			<aop:after pointcut-ref="selectAll" method="afterAdvice" />
-			
-			<aop:after-returning pointcut-ref="selectAll" returning="value" method="afterReturning" />
-			
-			<aop:after-throwing pointcut-ref="selectAll" throwing="ex" method="afterThrowing" />
-			
-		</aop:aspect>
-		
-	</aop:config>
+	<aop:aspectj-autoproxy />
 
 	<bean id="student" class="com.sonu.spring.Student">
 		<property name="name" value="Sonu" />

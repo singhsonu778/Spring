@@ -1,14 +1,23 @@
 package com.sonu.spring;
 
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
-		CustomEventPublisher customEventPublisher = context.getBean("customEventPublisher", CustomEventPublisher.class);
-		customEventPublisher.publish();
-		customEventPublisher.publish();
+		Student student = context.getBean("student", Student.class);
+
+		System.out.println("--------------------------");
+		student.getAge();
+
+		System.out.println("--------------------------");
+		student.getName();
+
+		System.out.println("--------------------------");
+		student.throwException();
+
+		System.out.println("--------------------------");
 	}
 }

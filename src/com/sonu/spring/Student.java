@@ -5,14 +5,7 @@ public class Student {
 	private Integer age;
 	private String name;
 	private Integer id;
-
-	public Student() {}
-	
-	public Student(Integer age, String name, Integer id) {
-		this.age = age;
-		this.name = name;
-		this.id = id;
-	}
+	private Integer marks;
 
 	public void setAge(Integer age) {
 		this.age = age;
@@ -37,4 +30,13 @@ public class Student {
 	public Integer getId() {
 		return id;
 	}
+
+	public Integer getMarks() {
+		return marks;
+	}
+
+	public void setMarks(Integer marks) {
+		this.marks = marks;
+	}
+
 }

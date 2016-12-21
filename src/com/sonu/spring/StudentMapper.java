@@ -10,6 +10,7 @@ public class StudentMapper implements RowMapper<Student> {
 		student.setId(rs.getInt("id"));
 		student.setName(rs.getString("name"));
 		student.setAge(rs.getInt("age"));
+		student.setMarks(rs.getInt("student_id"));
 		return student;
 	}
 }

@@ -31,7 +31,7 @@ public class MainApp {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
-		StudentJDBCTemplate studentJDBCTemplate = (StudentJDBCTemplate) context.getBean("studentJDBCTemplate");
+		StudentDAO studentJDBCTemplate = (StudentDAO) context.getBean("studentJDBCTemplate");
 
 		System.out.println("\nCreatiing records--------");
 		studentJDBCTemplate.create(1, "Sonu", 24, 90);

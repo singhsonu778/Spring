@@ -14,19 +14,12 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 public class StudentJDBCTemplate implements StudentDAO {
 
 	private JdbcTemplate jdbcTemplateObject;
-	private PlatformTransactionManager transactionManager;
 
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
-	public void setTransactionManager(PlatformTransactionManager transactionManager) {
-		this.transactionManager = transactionManager;
-	}
-
 	public void create(Integer id, String name, Integer age, Integer marks) {
-		TransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
-		TransactionStatus status = transactionManager.getTransaction(transactionDefinition);
 
 		try {
 			String query = "insert into Student (id, name, age) values (?, ?, ?)";
@@ -36,11 +29,9 @@ public class StudentJDBCTemplate implements StudentDAO {
 			query = "insert into Score (student_id, marks) values (?, ?)";
 			jdbcTemplateObject.update(query, id, marks);
 			System.out.println("Record created in Score: Id = " + id + ", Marks = " + marks);
-			transactionManager.commit(status);
 
 		} catch (DataAccessException ex) {
 			System.out.println("Error in creating record, rolling back");
-			transactionManager.rollback(status);
 			throw ex;
 		}
 		return;
